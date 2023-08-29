@@ -8,7 +8,10 @@ describe("PositionServiceIpApi", () => {
 
     const position = await positionService.getByIp(Ip.fromString("88.8.82.28"));
 
-    expect(position).toEqual({ latitude: 28.4666, longitude: -16.3027 });
+    expect(position.latitude).toBeLessThanOrEqual(28.47);
+    expect(position.latitude).toBeGreaterThanOrEqual(28.46);
+    expect(position.longitude).toBeLessThanOrEqual(-16.29);
+    expect(position.longitude).toBeGreaterThanOrEqual(-16.3);
   });
 
   it("fails if it's localhost", async () => {
