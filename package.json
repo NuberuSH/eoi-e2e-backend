@@ -17,6 +17,6 @@
   "devDependencies": {
     "prettier": "^3.0.3",
     "supertest": "^6.3.3",
-    "vitest": "^0.34.3"
+    "vitest": "^0.34.4"
   }
 }
