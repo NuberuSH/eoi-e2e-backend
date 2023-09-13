@@ -34,4 +34,8 @@ export class Ip {
   constructor(value) {
     this.value = value;
   }
+
+  isLocalhost() {
+    return this.value === "127.0.0.1";
+  }
 }

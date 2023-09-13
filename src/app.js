@@ -1,5 +1,6 @@
 import Koa from "koa";
 import Router from "@koa/router";
+import cors from "@koa/cors";
 import { GetCurrentTemperature } from "./use-cases/GetCurrentTemperature.js";
 import { PositionServiceIpApi } from "./services/PositionServiceIpApi.js";
 import { TemperatureServiceOpenMeteo } from "./services/TemperatureServiceOpenMeteo.js";
@@ -29,6 +30,7 @@ app
       handleError(ctx, error);
     }
   })
+  .use(cors())
   .use(router.routes())
   .use(router.allowedMethods());
 
