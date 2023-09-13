@@ -35,10 +35,15 @@ export class Ip {
     this.value = value;
   }
 
+  isLocal() {
+    return this.isLocalhost() || this.isLocalDocker();
+  }
+
+  isLocalDocker() {
+    return this.value.startsWith("172");
+  }
+
   isLocalhost() {
-    console.log(this.value);
-    const localhost = "127.0.0.1";
-    const localDocker = "172.24.0.1";
-    return this.value === localhost || this.value === localDocker;
+    return this.value === "127.0.0.1";
   }
 }

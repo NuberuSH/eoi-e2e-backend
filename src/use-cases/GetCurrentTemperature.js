@@ -7,7 +7,7 @@ export class GetCurrentTemperature {
   }
 
   async execute(ip) {
-    if (ip.isLocalhost()) {
+    if (ip.isLocal()) {
       return GetCurrentTemperature.FIXED_TEMPERATURE;
     }
 

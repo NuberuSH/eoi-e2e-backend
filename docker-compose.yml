@@ -1,6 +1,6 @@
 services:
   api:
     build: .
-    image: ghcr.io/eoi-testing-2022/tempy-backend
+    image: ghcr.io/eoi-testing-2022/tempy-backend:main
     ports:
       - "3000:3000"
