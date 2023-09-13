@@ -36,6 +36,9 @@ export class Ip {
   }
 
   isLocalhost() {
-    return this.value === "127.0.0.1";
+    console.log(this.value);
+    const localhost = "127.0.0.1";
+    const localDocker = "172.24.0.1";
+    return this.value === localhost || this.value === localDocker;
   }
 }
