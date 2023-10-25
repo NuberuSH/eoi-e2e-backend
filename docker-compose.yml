@@ -4,3 +4,10 @@ services:
     image: ghcr.io/eoi-testing-2022/tempy-backend:main
     ports:
       - "3000:3000"
+  mongo:
+    image: mongo:6.0.7-jammy
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "admin"
+      MONGO_INITDB_ROOT_PASSWORD: "password"
+    ports:
+        - "27017:27017"

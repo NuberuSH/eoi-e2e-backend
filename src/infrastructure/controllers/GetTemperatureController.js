@@ -1,4 +1,4 @@
-import { Ip } from "../entities/Ip.js";
+import {Ip} from "../../domain/entities/Ip.js";
 
 export class GetTemperatureController {
   constructor(getCurrentTemperature) {

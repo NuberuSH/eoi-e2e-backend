@@ -2,10 +2,10 @@ import Koa from "koa";
 import Router from "@koa/router";
 import cors from "@koa/cors";
 import { GetCurrentTemperature } from "./use-cases/GetCurrentTemperature.js";
-import { PositionServiceIpApi } from "./services/PositionServiceIpApi.js";
-import { TemperatureServiceOpenMeteo } from "./services/TemperatureServiceOpenMeteo.js";
-import { GetTemperatureController } from "./controllers/GetTemperatureController.js";
-import { InvalidIpError } from "./errors/InvalidIpError.js";
+import {PositionServiceIpApi} from "./domain/services/PositionServiceIpApi.js";
+import {TemperatureServiceOpenMeteo} from "./domain/services/TemperatureServiceOpenMeteo.js";
+import {GetTemperatureController} from "./infrastructure/controllers/GetTemperatureController.js";
+
 
 const app = new Koa();
 const router = new Router();
