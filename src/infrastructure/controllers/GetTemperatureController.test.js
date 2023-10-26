@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { GetTemperatureController } from "./GetTemperatureController.js";
-import { Ip } from "../entities/Ip.js";
+import { Ip } from "../../domain/entities/Ip.js";
 
 describe("GetTemperatureController", () => {
   let getCurrentTemperature;

@@ -1,6 +1,7 @@
 import Koa from "koa";
 import Router from "@koa/router";
 import cors from "@koa/cors";
+import bodyParser from "koa-bodyparser";
 import { GetCurrentTemperature } from "./use-cases/GetCurrentTemperature.js";
 import { PositionServiceIpApi } from "./domain/services/PositionServiceIpApi.js";
 import { TemperatureServiceOpenMeteo } from "./domain/services/TemperatureServiceOpenMeteo.js";
@@ -12,16 +13,18 @@ import { IdGeneratorNode } from "./infrastructure/IdGenerator/IdGeneratorNode.js
 import { CountryRepositoryMongo } from "./infrastructure/CountryRepository/CountryRepositoryMongo.js";
 
 const app = new Koa();
+app.use(bodyParser());
 const router = new Router();
+
 
 const positionService = new PositionServiceIpApi();
 const temperatureService = new TemperatureServiceOpenMeteo();
 const getCurrentTemperature = new GetCurrentTemperature(
   positionService,
-  temperatureService,
+  temperatureService
 );
 const getTemperatureController = new GetTemperatureController(
-  getCurrentTemperature,
+  getCurrentTemperature
 );
 const idGenerator = new IdGeneratorNode();
 const countryRepository = new CountryRepositoryMongo();
@@ -29,7 +32,7 @@ const registerCountry = new RegisterCountry(countryRepository, idGenerator);
 const postCountryController = new PostCountryController(registerCountry);
 
 router.get("/temperature", getTemperatureController.execute);
-router.post("/country", postCountryController.execute);
+router.post("/country", postCountryController.execute); 
 
 app
   .use(async (ctx, next) => {

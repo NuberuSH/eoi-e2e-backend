@@ -49,6 +49,21 @@ export class CountryRepositoryMongo extends CountryRepository {
     );
   }
 
+  async findByName(name) {
+    this.ensureIsConnected();
+    const savedCountry = await this.countries.findOne({ name });
+
+    if (!savedCountry) {
+      return null;
+    }
+
+    return new Country(
+      savedCountry.id,
+      savedCountry.name,
+      savedCountry.temperature,
+    );
+  }
+  
   async deleteCountry(id) {
     this.ensureIsConnected();
     const result = await this.countries.deleteOne({ id });

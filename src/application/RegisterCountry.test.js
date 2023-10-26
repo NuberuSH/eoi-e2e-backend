@@ -35,8 +35,7 @@ describe("RegisterCountry", () => {
   })
 
   it("must throw an error if the country already exists", async () => {
-    vi.spyOn(countryRepository, "findById").mockReturnValue(true)
-
+    vi.spyOn(countryRepository, "findByName").mockResolvedValue(true)
     const result = registerCountry.execute(notImportantName, notImportantTemperature)
 
     await expect(result).rejects.toThrow("Country already exists")

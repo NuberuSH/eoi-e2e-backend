@@ -15,10 +15,10 @@ export class RegisterCountry {
     const alreadyExists = await this.countryRepository.findByName(name);
 
     if (alreadyExists) {
-      throw new error("Country already exists");
+      throw new Error("Country already exists");
     }
 
-    const country = country.create(
+    const country = Country.create(
       this.idGenerator.generate(),
       name,
       temperature,

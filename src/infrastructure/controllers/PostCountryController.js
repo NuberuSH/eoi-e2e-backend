@@ -10,12 +10,26 @@ export class PostCountryController {
     this.registerCountry = registerCountry;
   }
 
-  execute = async (req, res) => {
-    console.log(req.body);
-    const { name, temperature } = schema.parse(req.body);
+  execute = async (ctx) => {
+    const { name, temperature } = ctx.request.body;
 
-    await this.registerCountry.execute(name, temperature);
+    if (!name || !temperature) {
+      console.log("Invalid request body");
+      ctx.status = 400;
+      ctx.body = { error: 'Invalid request body' };
+      return;
+    }
 
-    res.status(201).json({ status: "ok" });
+    try {
+      console.log("Executing registerCountry with name:", name, "and temperature:", temperature);
+      await this.registerCountry.execute(name, temperature);
+      console.log("Registration successful.");
+      ctx.status = 201;
+      ctx.body = { status: 'ok' };
+    } catch (error) {
+      console.error("Error while executing registerCountry:", error);
+      ctx.status = 500;
+      ctx.body = { error: 'Internal Server Error' };
+    }
   };
 }

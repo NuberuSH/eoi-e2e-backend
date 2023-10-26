@@ -40,6 +40,14 @@ describe.each([["Mongo", CountryRepositoryMongo]])(
       expect(savedCountry).toEqual(null);
     });
 
+    it("findByName returns null if country not found", async () => {
+      const name = "spain"
+
+      const savedCountry = await countryRepository.findByName(name);
+
+      expect(savedCountry).toEqual(null);
+    });
+
     it("deletes a country from the database", async () => {
       const id = "00000000-0000-0000-0000-000000000000";
 

@@ -5,6 +5,8 @@ export class CountryRepositoryMock extends CountryRepository {
 
   findById() { }
 
+  findByName(){}
+
   delete() { }
 
   update() { }

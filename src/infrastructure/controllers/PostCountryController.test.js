@@ -60,7 +60,7 @@ describe("PostCountryController", () => {
       status: () => ({ json }),
     }
 
-    await postCountryController.execute(req, res)
+    const result = postCountryController.execute(req, res)
 
     await expect(result).rejects.toBeInstanceOf(ZodError)
   })
@@ -79,7 +79,7 @@ describe("PostCountryController", () => {
       status: () => ({ json }),
     }
 
-    await postCountryController.execute(req, res)
+    const result = postCountryController.execute(req, res)
 
     await expect(result).rejects.toBeInstanceOf(ZodError)
   })

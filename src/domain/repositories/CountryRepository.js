@@ -19,6 +19,10 @@ export class CountryRepository {
     throw new Error("This is an abstract class. You should implement the findByIp method")
   }
 
+  async findByName(name){
+    throw new Error("This is an abstract class. You should implement the findByName method")
+  }
+
   /**
    * delete the country
    * @param {country} country
