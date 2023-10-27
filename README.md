@@ -2,52 +2,66 @@
 
 ## Descripción
 
-Esta aplicación permite a los usuarios ver la temperatura de una lista de paises. Además, permite a los usuarios votar si les parece correcta la temperatura de un país y dejar un comentario.
-Nuestro producto es una interfaz grafica que hace uso de una API REST privada para obtener la información de los paises y los votos de los usuarios.
+This application allows users to:
+
+- View the temperature of a country in degrees Celsius, Fahrenheit and Kelvin.
+- View the temperature of a list of countries.
+- Save a new country through an ip.
+- Remove a country from the list of countries.
 
 ## e2e test cases
 
-1. Un usuario debe poder votar si le parece correcta la temperatura de un país
-2. Un usuario debe poder votar si le parece correcta la temperatura de un país y dejar un comentario
-3. Un usuario debe poder leer los votos de un país
-4. Un usuario debe poder leer los votos de un país y ver los comentarios
+1. A user must be able to view the temperature of a country in degrees Celsius, Fahrenheit and Kelvin.
+2. A user must be able to see the temperature of a list of countries.
+3. A user must be able to save a new country through an ip.
+4. A user must be able to remove a country from the list of countries.
 
 ## API REST
 
-### GET /temperature
+### GET /country
 
-Devuelve la temperatura de un país recibiendo la ip como header.
+#### Request
 
-### GET /votes/:country
+```json
+[
+  {
+    "id": "string",
+    "name": "string",
+    "temperature": "number", // celsius
+    "ip": "string"
+  }
+]
+```
 
-Devuelve los votos de un país.
+### POST /country
 
-{
-"votes": 0,
-"comments": []
-}
-
-### POST /votes/:country
-
-Permite votar un país. Recibe un body con el siguiente formato:
-
-{
-"vote": true,
-"comment": "string"
-}
-
-## DB
-
-### Countries
+#### Request
 
 ```json
 {
-  "slug": "string",
-  "votes": 0,
-  "comments": []
+  "ip": "string"
 }
 ```
 
----
+### DELETE /country/:id
 
-## Post Country
+#### Request
+
+```json
+{
+  "id": "string"
+}
+```
+
+## DB
+
+### Country
+
+```json
+{
+  "id": "string",
+  "name": "string",
+  "temperature": "number", // celsius
+  "ip": "string"
+}
+```
