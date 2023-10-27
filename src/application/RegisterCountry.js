@@ -1,4 +1,4 @@
-import { Country } from "../domain/services/Country.js";
+import { Country } from "../domain/entities/Country.js";
 
 export class RegisterCountry {
   /**

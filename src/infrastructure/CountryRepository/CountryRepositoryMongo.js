@@ -1,6 +1,6 @@
 import { CountryRepository } from "../../domain/repositories/CountryRepository.js";
 import { mongoClient } from "./MongoClient.js";
-import { Country } from "../../domain/services/Country.js";
+import { Country } from "../../domain/entities/Country.js";
 
 export class CountryRepositoryMongo extends CountryRepository {
   isConnected = false;

@@ -11,6 +11,6 @@ export class PositionServiceIpApi {
       throw new Error(data.message);
     }
 
-    return { latitude: data.lat, longitude: data.lon };
+    return { latitude: data.lat, longitude: data.lon, country: data.country };
   }
 }

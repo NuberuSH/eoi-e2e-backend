@@ -23,8 +23,8 @@ Devuelve la temperatura de un país recibiendo la ip como header.
 Devuelve los votos de un país.
 
 {
-    "votes": 0,
-    "comments": []
+"votes": 0,
+"comments": []
 }
 
 ### POST /votes/:country
@@ -32,8 +32,8 @@ Devuelve los votos de un país.
 Permite votar un país. Recibe un body con el siguiente formato:
 
 {
-    "vote": true,
-    "comment": "string"
+"vote": true,
+"comment": "string"
 }
 
 ## DB
@@ -42,8 +42,12 @@ Permite votar un país. Recibe un body con el siguiente formato:
 
 ```json
 {
-    "slug": "string",
-    "votes": 0,
-    "comments": []
+  "slug": "string",
+  "votes": 0,
+  "comments": []
 }
 ```
+
+---
+
+## Post Country
