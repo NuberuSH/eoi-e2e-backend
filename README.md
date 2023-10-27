@@ -65,3 +65,30 @@ This application allows users to:
   "ip": "string"
 }
 ```
+
+## Quality Standards:
+
+### Efiiciency
+
+- In order to have a greater performance, the application will refresh the temperature of the countries periodically instead of refreshing it every time the user enters the application.
+- The countries will be sent to the client in a single request and then will be filtered in the client.
+
+### Maintainability
+
+- The code will be written in english.
+- The code will be using a linter and a formatter.
+- The backend has a domain architecture.
+- The frontend will have a component architecture.
+- We will modularize the code as much as possible.
+- We will use a git flow.
+
+### Portability
+
+- The frontend will be independent of the backend.
+- The backend will be independent of the frontend.
+
+## Thoughts of improvement
+
+- More test cases.
+- Add typescript.
+- Add error handling.
