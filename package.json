@@ -22,7 +22,7 @@
     "mongodb": "^6.2.0"
   },
   "devDependencies": {
-    "prettier": "^3.0.3",
+    "prettier": "^3.2.5",
     "supertest": "^6.3.3",
     "vitest": "^0.34.6",
     "zod": "^3.22.4"
